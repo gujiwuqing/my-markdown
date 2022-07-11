@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
+import {marked} from 'marked';
 
-export default function OnlyView({ value }) {
+export interface OnlyViewProps {
+  value: string;
+}
+
+export default function OnlyView({value = ''}: OnlyViewProps) {
   return (
     <div
-      dangerouslySetInnerHTML={{ __html: value }}
+      dangerouslySetInnerHTML={{__html: marked.parse(value)}}
       id="markdown"
       className="markdown-body"
     />

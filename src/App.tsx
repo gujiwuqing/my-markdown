@@ -78,13 +78,8 @@ const App = () => {
   const [theme, setTheme] = useState("");
   const input = useRef(null);
   const handleChange = async (themes: string) => {
-    console.log(input.current?.resizableTextArea?.textArea.value);
-    setTheme(themes);
-    const mdValue = await md2html(
-      input.current?.resizableTextArea?.textArea.value
-    );
-    setValue(themes + mdValue);
-    // setValue(theme + value)
+    console.log(themes);
+    // setTheme()
   };
 
   // 加粗工具
@@ -112,8 +107,8 @@ const App = () => {
     console.log("selectionStart", selectionStart);
     console.log("selectionEnd", selectionEnd);
     console.log("newValue", newValue);
-    let md = await md2html(newValue);
-    setValue(md);
+    // let md = await md2html(newValue);
+    setValue(newValue);
   };
 
   // useEffect(() => {
@@ -135,9 +130,9 @@ const App = () => {
           <TextArea
             className="m-textarea"
             ref={input}
-            onChange={async (e) => {
-              let md = await md2html(e.target.value);
-              setValue(theme ? theme + md : md);
+            value={value}
+            onChange={(e)=>{
+              setValue(e.target.value);
             }}
           />
         </Col>
