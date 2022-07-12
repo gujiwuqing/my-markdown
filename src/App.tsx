@@ -2,10 +2,13 @@ import React, { useState, useRef, useEffect } from "react";
 import { Input, Row, Col, Select } from "antd";
 import OnlyView from "./components/OnlyView";
 import { getCursorPosition, setSelectionRange } from "./util/";
+import ToolBar from "./components/ToolBar";
 import { md2html } from "./myParser";
-import "./App.css";
+import juejinMarkdownThemes from "./util/theme";
+import "./App.less";
 
 const { TextArea } = Input;
+const { Option } = Select;
 
 const themeList = [
   {
@@ -79,7 +82,8 @@ const App = () => {
   const input = useRef(null);
   const handleChange = async (themes: string) => {
     console.log(themes);
-    // setTheme()
+
+    setTheme(themes);
   };
 
   // 加粗工具
@@ -116,14 +120,13 @@ const App = () => {
   // },[value])
   return (
     <div className="editor-area">
-      <div>
-        <Select
-          value={theme}
-          style={{ width: 120 }}
-          options={themeList}
-          onChange={handleChange}
-        ></Select>
-        <button onClick={addBlod}>加粗</button>
+      <div className="editor-header">
+        <ToolBar
+          value={value}
+          onChange={(value: string) => {
+            console.log("value", value);
+          }}
+        />
       </div>
       <Row className="editor-content">
         <Col span={12}>
@@ -131,13 +134,13 @@ const App = () => {
             className="m-textarea"
             ref={input}
             value={value}
-            onChange={(e)=>{
+            onChange={(e) => {
               setValue(e.target.value);
             }}
           />
         </Col>
         <Col span={12}>
-          <OnlyView value={value} />
+          <OnlyView value={value} theme={theme} />
         </Col>
       </Row>
     </div>

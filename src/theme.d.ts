@@ -1,0 +1,1 @@
+declare module 'juejin-markdown-themes/dist/index.js
