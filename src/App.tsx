@@ -4,14 +4,14 @@ import OnlyView from "./components/OnlyView";
 import { getCursorPosition, setSelectionRange } from "./util/";
 import ToolBar from "./components/ToolBar";
 import { md2html } from "./myParser";
-import juejinMarkdownThemes from "./util/theme";
 import { useTextSelection } from "ahooks";
+import _virtual_juejinMarkdownThemes from 'juejin-markdown-themes/dist/index.js';
 import "./App.less";
 
 const { TextArea } = Input;
 const App = () => {
   const [value, setValue] = useState("");
-  const [theme, setTheme] = useState("");
+  const [theme, setTheme] = useState(_virtual_juejinMarkdownThemes['cyanosis'].style);
   const inputRef = useRef(null);
   return (
     <div className="editor-area">

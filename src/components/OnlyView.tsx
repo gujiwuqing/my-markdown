@@ -1,7 +1,8 @@
 import React from "react";
 import { marked } from "marked";
 import hljs from "highlight.js";
-import "highlight.js/styles/github.css";
+// import "highlight.js/styles/github.css";
+import "highlight.js/styles/atom-one-dark.css";
 export interface OnlyViewProps {
   value: string;
   theme: string;

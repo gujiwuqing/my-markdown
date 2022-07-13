@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@ant-design/icons': ^4.7.0
   '@types/marked': ^4.0.3
+  '@types/node': ^18.0.3
   '@types/react': ^17.0.33
   '@types/react-dom': ^17.0.10
   '@vitejs/plugin-react': ^1.0.7
@@ -30,6 +31,7 @@ dependencies:
 
 devDependencies:
   '@types/marked': 4.0.3
+  '@types/node': 18.0.3
   '@types/react': 17.0.41
   '@types/react-dom': 17.0.14
   '@vitejs/plugin-react': 1.2.0
@@ -391,6 +393,10 @@ packages:
 
   /@types/marked/4.0.3:
     resolution: {integrity: sha512-HnMWQkLJEf/PnxZIfbm0yGJRRZYYMhb++O9M36UCTA9z53uPvVoSlAwJr3XOpDEryb7Hwl1qAx/MV6YIW1RXxg==}
+    dev: true
+
+  /@types/node/18.0.3:
+    resolution: {integrity: sha512-HzNRZtp4eepNitP+BD6k2L6DROIDG4Q0fm4x+dwfsr6LGmROENnok75VGw40628xf+iR24WeMFcHuuBDUAzzsQ==}
     dev: true
 
   /@types/prop-types/15.7.4:
