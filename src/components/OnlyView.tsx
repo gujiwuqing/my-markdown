@@ -10,11 +10,9 @@ export interface OnlyViewProps {
 export default function OnlyView({ value = "", theme = "" }: OnlyViewProps) {
   const html = marked.parse(value, {
     gfm: true,
-    // highlight: function (code) {
-    //   return hljs.highlightAuto(code).value;
-    // },
-    highlight: function (code, lang) {
-      return hljs.highlightAuto(code, [lang]).value;
+    highlight(code, lang) {
+      const language = hljs.getLanguage(lang) ? lang : "javascript";
+      return hljs.highlight(code, { language }).value;
     },
   });
   return (
