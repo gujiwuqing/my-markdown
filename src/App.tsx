@@ -11,7 +11,7 @@ import "./App.less";
 const { TextArea } = Input;
 const App = () => {
   const [value, setValue] = useState("");
-  const [theme, setTheme] = useState(_virtual_juejinMarkdownThemes['cyanosis'].style);
+  const [theme, setTheme] = useState(_virtual_juejinMarkdownThemes['channing-cyan'].style);
   const inputRef = useRef(null);
   return (
     <div className="editor-area">

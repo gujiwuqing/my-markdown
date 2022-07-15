@@ -50,3 +50,26 @@ export function setTitle(
     ? value.slice(0, start) + `${symbol}${txt}`
     : value.slice(0, start) + symbol + value.slice(start, end);
 }
+
+// 添加代码块
+export function addCodeBlock(
+  el: HTMLTextAreaElement,
+  value: string,
+  symbol: string
+) {
+  let [start, end] = getCursorPosition(el);
+
+  let newValue =
+    start === end
+      ? `${value.slice(0, start)}\n\`\`\`\n\n\`\`\`\n${value.slice(end)}`
+      : `${value.slice(0, start)}\n\`\`\`\n${value.slice(
+          start,
+          end
+        )}\n\`\`\`\n${value.slice(end)}`;
+
+  let selectionStart = end + 5;
+  let selectionEnd = end + 5;
+
+  setSelectionRange(el, selectionStart, selectionEnd);
+  return newValue;
+}
